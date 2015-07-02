@@ -183,19 +183,6 @@ let Tlist_Process_File_Always = 1
 let Tlist_Display_Prototype = 0
 let Tlist_Compact_Format = 1
 
-
-"powline {
-    "let g:Powerline_dividers_override = ['>', '>', '<', '<']
-    "let g:Powerline_symbols_override = {
-    "        \ 'BRANCH': [0x2213],
-    "        \ 'LINE': 'L',
-    "        \ }
-    "set t_Co=256
-    let g:Powerline_symbols='fancy'
-    "let Powline_symbols='compatible'
-    set laststatus=2
-"}
-
 " 设置字体 以及中文支持
 if has ("gui_running")
     set lines=50
@@ -365,3 +352,20 @@ if has("multi_byte")
 "  echoerr "Sorry, this version of (g)vim was not compiled with multi_byte"
 endif
 
+"powline {
+    "let g:Powerline_dividers_override = ['>', '>', '<', '<']
+    "let g:Powerline_symbols_override = {
+    "        \ 'BRANCH': [0x2213],
+    "        \ 'LINE': 'L',
+    "        \ }
+    let g:Powerline_symbols = 'fancy'
+    set t_Co=256
+    set laststatus=2
+"}
+
+"airline {
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#left_sep = ' '
+    let g:airline#extensions#tabline#left_alt_sep = '|'
+"}
+hi Search cterm=NONE ctermfg=grey ctermbg=blue
