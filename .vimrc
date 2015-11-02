@@ -197,7 +197,7 @@ if has ("gui_running")
         "set guifont=DEC\ Terminal\ 10
         "set guifont=WenQuanYi\ Zen\ Hei\ Mono\ Medium\ 14
         
-        set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 14
+        set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 16
         "set guifont=Inconsolata\ Medium\ 11
         "set guifont=XHei\ Mono\ 11
         "set guifont=Monaco
@@ -361,6 +361,26 @@ endif
     let g:Powerline_symbols = 'fancy'
     set t_Co=256
     set laststatus=2
+"}
+
+"ctrlp {
+    let g:ctrlp_map = '<c-p>'
+    let g:ctrlp_cmd = 'CtrlP'
+    let g:ctrlp_working_path_mode = 'ra'
+    set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+    set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
+    "let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+    let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+      \ 'file': '\v\.(exe|so|dll|o|d)$',
+      \ 'link': 'some_bad_symbolic_links',
+      \ }
+    if MySys() == "linux"
+        let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
+    elseif MySys() == "windows"                " 设定windows系统中ctags程序的位置
+        let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
+    endif
 "}
 
 "airline {
